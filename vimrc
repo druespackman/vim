@@ -96,6 +96,10 @@ noremap <C-J> :bp<CR>
 noremap <C-K> :bn<CR>
 noremap <Leader>d :bd!<CR>:bp<CR>
 
+" Move between vertical splits easier
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+
 " Git/fugitive shortcuts
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
