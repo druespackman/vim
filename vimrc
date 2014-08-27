@@ -24,6 +24,8 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'othree/html5.vim'
 Bundle 'rstacruz/sparkup'
+Bundle 'scrooloose/nerdtree'
+
 
 " Automatically install bundles on first run
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
@@ -100,9 +102,10 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gf <C-W>h<C-W>czR
 nnoremap <Leader>gp :Git push<CR>
 
-" Mappings for easymotion and easy-align
+" Mappings for misc plugins
 map <SPACE> <Plug>(easymotion-s2)
 map <Leader>a <Plug>(EasyAlign)
+map <Leader>n :NERDTreeToggle<CR>
 
 " Shortcuts to edit and reload vim config
 nnoremap <Leader>r :edit ~/.vim/vimrc<CR>
@@ -134,7 +137,7 @@ autocmd! BufWinEnter *.html match ErrorMsg '\%>100v.\+'
 
 " Automatically wrap text while typing in Markdown and rST documents
 autocmd! BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd! Filetype markdown,rst set textwidth=80
+autocmd! Filetype markdown,rst set textwidth=79
 
 " Remove trailing whitespace and empty lines at end of file
 augroup whitespace
