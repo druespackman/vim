@@ -136,7 +136,7 @@ let g:closetag_html_style=1
 autocmd! FileType html,htmldjango source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 " Highlight characters when lines get too long
-autocmd! BufWinEnter *.py,*.vim,vimrc match ErrorMsg '\%>80v.\+'
+autocmd! BufWinEnter *.py,*.vim,vimrc match ErrorMsg '\%>79v.\+'
 autocmd! BufWinEnter *.html match ErrorMsg '\%>100v.\+'
 
 " Automatically wrap text while typing in Markdown and rST documents
