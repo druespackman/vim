@@ -89,7 +89,7 @@ vnoremap c "_c
 vnoremap p "_dP
 
 " Poor man's CtrlP
-noremap <Leader>e :e **/
+noremap <Leader>e :e **/*
 
 " Move between open buffers easier
 noremap <C-J> :bp<CR>
