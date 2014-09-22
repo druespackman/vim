@@ -25,6 +25,7 @@ Bundle 'vim-scripts/closetag.vim'
 Bundle 'othree/html5.vim'
 Bundle 'rstacruz/sparkup'
 Bundle 'scrooloose/nerdtree'
+Bundle 'fatih/vim-go'
 
 
 " Automatically install bundles on first run
@@ -65,7 +66,7 @@ set softtabstop=4           " number of spaces pressing <Tab> counts for
 set tabstop=4               " number of spaces a <Tab> in the file counts for
 
 " Smaller indents on css and html files
-autocmd! Syntax css,html,htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd! Syntax css,html,htmldjango,js setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 set showmatch               " briefly jump to matching bracket
 set ignorecase              " ignore case when pattern matching
