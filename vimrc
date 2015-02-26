@@ -24,9 +24,10 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'othree/html5.vim'
 Bundle 'rstacruz/sparkup'
-Bundle 'scrooloose/nerdtree'
 Bundle 'fatih/vim-go'
-
+Bundle 'scrooloose/nerdtree'
+Bundle 'junegunn/vader.vim'
+Bundle 'ryanss/vim-hackernews'
 
 " Automatically install bundles on first run
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
@@ -137,8 +138,12 @@ let g:closetag_html_style=1
 autocmd! FileType html,htmldjango source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 " Highlight characters when lines get too long
-autocmd! BufWinEnter *.py,*.vim,vimrc match ErrorMsg '\%>79v.\+'
-autocmd! BufWinEnter *.html match ErrorMsg '\%>100v.\+'
+augroup LongLines
+    autocmd!
+    autocmd FileType * match none
+    autocmd FileType python,vim match ErrorMsg '\%>80v.\+'
+    autocmd FileType html,htmldjango match ErrorMsg '\%>100v.\+'
+augroup END
 
 " Automatically wrap text while typing in Markdown and rST documents
 autocmd! BufNewFile,BufReadPost *.md set filetype=markdown
