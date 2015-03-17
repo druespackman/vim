@@ -141,9 +141,12 @@ autocmd! FileType html,htmldjango source ~/.vim/bundle/closetag.vim/plugin/close
 augroup LongLines
     autocmd!
     autocmd FileType * match none
-    autocmd FileType python,vim match ErrorMsg '\%>80v.\+'
+    autocmd FileType python,vim,vimrc match ErrorMsg '\%>80v.\+'
     autocmd FileType html,htmldjango match ErrorMsg '\%>100v.\+'
 augroup END
+
+" Format XML with gg=G
+autocmd! FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 " Automatically wrap text while typing in Markdown and rST documents
 autocmd! BufNewFile,BufReadPost *.md set filetype=markdown
