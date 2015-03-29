@@ -140,9 +140,9 @@ autocmd! FileType html,htmldjango source ~/.vim/bundle/closetag.vim/plugin/close
 " Highlight characters when lines get too long
 augroup LongLines
     autocmd!
-    autocmd FileType * match none
-    autocmd FileType python,vim,vimrc match ErrorMsg '\%>80v.\+'
-    autocmd FileType html,htmldjango match ErrorMsg '\%>100v.\+'
+    autocmd BufEnter * match none
+    autocmd BufEnter *.py,*.vim,.vimrc match ErrorMsg '\%>80v.\+'
+    autocmd BufEnter *.html match ErrorMsg '\%>100v.\+'
 augroup END
 
 " Format XML with gg=G
