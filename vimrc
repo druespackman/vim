@@ -150,7 +150,7 @@ autocmd! FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/
 
 " Automatically wrap text while typing in Markdown and rST documents
 autocmd! BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd! Filetype markdown,rst set textwidth=79
+autocmd! Filetype markdown,rst setlocal textwidth=79
 
 " Remove trailing whitespace and empty lines at end of file
 augroup whitespace
