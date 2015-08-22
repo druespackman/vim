@@ -142,7 +142,7 @@ augroup LongLines
     autocmd!
     autocmd BufEnter * match none
     autocmd BufEnter *.py,*.vim,.vimrc match ErrorMsg '\%>80v.\+'
-    autocmd BufEnter *.html match ErrorMsg '\%>100v.\+'
+    autocmd BufEnter *.html,*.js,*.php match ErrorMsg '\%>100v.\+'
 augroup END
 
 " Format XML with gg=G
