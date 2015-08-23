@@ -155,6 +155,8 @@ autocmd! Filetype markdown,rst setlocal textwidth=79
 " Remove trailing whitespace and empty lines at end of file
 augroup whitespace
     autocmd!
+    autocmd BufWritePre * :call setpos("''", getpos("."))
     autocmd BufWritePre * :%s/\s\+$//e
     autocmd BufWritePre * :%s/\($\n\s*\)\+\%$//e
+    autocmd BufWritePre * ''
 augroup END
