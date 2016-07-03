@@ -31,6 +31,7 @@ Bundle 'ryanss/vim-hackernews'
 " Automatically install bundles on first run
 if !isdirectory(expand("~/.vim/bundle/vim-airline"))
     execute 'silent BundleInstall'
+    execute 'silent GoInstallBinaries'
     execute 'silent q'
 endif
 
