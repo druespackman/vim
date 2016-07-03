@@ -138,6 +138,9 @@ augroup LongLines
     autocmd BufEnter *.html,*.js,*.php match ErrorMsg '\%>100v.\+'
 augroup END
 
+" Vim can manage golang imports in files automatically
+let g:go_fmt_command = "goimports"
+
 " Format XML with gg=G
 autocmd! FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
