@@ -5,32 +5,39 @@
 "  https://github.com/ryanss/vim
 "  MIT License
 
+if has('win32') || has('win64')
+    let VIMDIR = expand("$HOME/vimfiles")
+else
+    let VIMDIR = expand("$HOME/.vim")
+endif
 
 " Automatically setup Vundle on first run
-if !isdirectory(expand("~/.vim/bundle/vundle"))
-    call system("git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle")
+if !isdirectory(VIMDIR."/bundle/Vundle.vim")
+    call system("git clone https://github.com/VundleVim/Vundle.vim.git ".VIMDIR."/bundle/Vundle.vim")
 endif
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'bling/vim-airline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'vim-scripts/closetag.vim'
-Bundle 'othree/html5.vim'
-Bundle 'rstacruz/sparkup'
-Bundle 'fatih/vim-go'
-Bundle 'scrooloose/nerdtree'
-Bundle 'junegunn/vader.vim'
-Bundle 'ryanss/vim-hackernews'
+execute "set rtp+=".expand(VIMDIR."/bundle/Vundle.vim")
+call vundle#begin()
+let g:vundle#bundle_dir=VIMDIR."/bundle"
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'othree/html5.vim'
+Plugin 'rstacruz/sparkup'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/vader.vim'
+Plugin 'ryanss/vim-hackernews'
+call vundle#end()
 
 " Automatically install bundles on first run
-if !isdirectory(expand("~/.vim/bundle/vim-airline"))
+if !isdirectory(expand(VIMDIR."/bundle/vim-airline"))
     execute 'silent BundleInstall'
     execute 'silent GoInstallBinaries'
     execute 'silent q'
@@ -115,11 +122,15 @@ map <Leader>a <Plug>(EasyAlign)
 map <Leader>n :NERDTreeToggle<CR>
 
 " Shortcuts to edit and reload vim config
-nnoremap <Leader>r :edit ~/.vim/vimrc<CR>
-nnoremap <Leader>R :source ~/.vim/vimrc<CR>:source ~/.vim/vimrc<CR>
+nnoremap <Leader>r :execute "edit ".VIMDIR."/vimrc"<CR>
+nnoremap <Leader>R :execute "source ".VIMDIR."/vimrc"<CR>
 
 set guioptions=
-set guifont=Menlo:h14
+if has('win32') || has('win64')
+    set guifont=Consolas:h12
+else
+    set guifont=Menlo:h14
+endif
 
 " Airline customizations
 if !exists("g:airline_symbols")
@@ -136,7 +147,7 @@ let g:airline_section_z = airline#section#create_right(['%l', '%c'])
 
 " Closetag settings
 let g:closetag_html_style=1
-autocmd! FileType html,htmldjango source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+autocmd! FileType html,htmldjango execute "source ".VIMDIR."/bundle/closetag.vim/plugin/closetag.vim"
 
 " Highlight characters when lines get too long
 augroup LongLines
