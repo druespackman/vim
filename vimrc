@@ -17,6 +17,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'fholgado/minibufexpl.vim'
+Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'junegunn/vim-easy-align'
@@ -101,6 +102,12 @@ noremap <Leader>d :bd!<CR>:bp<CR>
 " Move between vertical splits easier
 noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
+
+" Git/fugitive shortcuts
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gvdiff<CR>
+nnoremap <Leader>gf <C-W>h<C-W>czR
+nnoremap <Leader>gp :Git push<CR>
 
 " Mappings for misc plugins
 map <SPACE> <Plug>(easymotion-s2)
