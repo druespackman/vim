@@ -120,6 +120,7 @@ nnoremap <Leader>gp :Git push<CR>
 map <SPACE> <Plug>(easymotion-s2)
 map <Leader>a <Plug>(EasyAlign)
 map <Leader>n :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 " Shortcuts to edit and reload vim config
 nnoremap <Leader>r :execute "edit ".VIMDIR."/vimrc"<CR>
