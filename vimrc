@@ -33,7 +33,6 @@ Plugin 'rstacruz/sparkup'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/vader.vim'
-Plugin 'ryanss/vim-hackernews'
 call vundle#end()
 
 " Automatically install bundles on first run
